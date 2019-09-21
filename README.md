@@ -2,8 +2,11 @@
 
 환경 설정하는 거야
 1. Anaconda3(콘다 깔면 파이썬 알아서 깔림)
-1. conda환경에서 파이썬 3.6ver으로 환경 새로 만들어 줘야함
-https://kyoko0825.tistory.com/entry/%EC%9C%8810-%EC%95%84%EB%82%98%EC%BD%98%EB%8B%A4%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%ED%85%90%EC%84%9C%ED%94%8C%EB%A1%9C%EC%9A%B0-CPU-%EB%B2%84%EC%A0%84-%EC%84%A4%EC%B9%98
+1. conda환경에서 파이썬 3.6ver으로 환경 새로 만들어 줘야함http://blog.naver.com/PostView.nhn?blogId=baek2sm&logNo=221378601592&categoryNo=0&parentCategoryNo=0&viewDate=&currentPage=1&postListTopCurrentPage=1&from=postView
+1. 필수 라이브러리 설치
+cv2 - https://dejavuqa.tistory.com/228
+pip install numpy,pandas,matplotlib,pillow 여러가지 있었는데 까먹.. 하다가 필요한거 부르는 것만 깔자 이거는
 
+tensorflow는 필요할지 모르겠음, 여기선 일단 caffe 쓰니까 이것도 보류
 ----------------------
 ## Model 다운 받는 곳 http://posefs1.perception.cs.cmu.edu/OpenPose/models/hand/pose_iter_102000.caffemodel
