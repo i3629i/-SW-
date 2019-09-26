@@ -1,13 +1,13 @@
 # 1. Project
 
->## 1. Introduction
+## 1. Introduction
 >> 최근 카메라의 화질이 향상되면서 지문까지 고화질로 찍히게 되었습니다.</br>
 >> 이를 통해 사용자가 V자를 하고 사진을 찍거나 손바닥이 향하게 찍은 사진을 SNS에 게시하게 되면,</br> 
 >> 사용자가 게시한 사진을 통해 지문을 해킹할 수 있게 되었습니다.</br>
 >> 본 팀에서는 이를 방지하기 위한 「????」을 설계하였습니다.
 
 
-> ## 2. How to make this System
+## 2. How to make this System
 >> 2-1. Hand Keypoint Detection
 >> 본 기법은 손의 마디를 인식하는 Open CV 기법입니다.
 
