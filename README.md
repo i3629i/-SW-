@@ -2,7 +2,7 @@
  >>## markdown 정리 사이트 <h4> 
  >>https://gist.github.com/ihoneymon/652be052a0727ad59601
 
-
+</br></br>
 # 2. 환경 설정하는 순서
   >>## 2-1. Anaconda3(Anaconda를 설치하면 Python도 함께 설치됨)
   >>1. conda환경에서 파이썬 3.6ver으로 environment를 새로 만들어 줘야합니다.</br>
@@ -17,7 +17,7 @@
 >> [Model 다운 받는 곳] </br>
 >>http://posefs1.perception.cs.cmu.edu/OpenPose/models/hand/pose_iter_102000.caffemodel
 
-
+</br></br>
 # 3. 프로젝트 필요 내용
 
 # 3-1.이미지나 동영상의 지문 지우기
