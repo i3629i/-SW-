@@ -11,7 +11,7 @@
 >> 2-1. Hand Keypoint Detection
 >> 본 기법은 손의 마디를 인식하는 Open CV 기법입니다.
 
-<>
+<hr/>
 
 # 00. 환경 설정하는 순서
   >>## 2-1. Anaconda3
