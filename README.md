@@ -17,7 +17,7 @@
 </br>
 
 # 00. 환경 설정하는 순서
-  >>## 2-1. Anaconda3
+  >## 2-1. Anaconda3
   >>1. conda환경에서 파이썬 3.6ver으로 environment를 새로 만들어 줘야합니다.</br>
   >>//Anaconda 3를 설치하면 Python도 함께 설치되어 별도 설치할 필요가 없습니다.</br>
   >> → 아래 사이트를 참고하시면 됩니다.</br></br>
@@ -27,7 +27,7 @@
 >>https://dejavuqa.tistory.com/228 </br></br>
 >>ps.pip install numpy,pandas,matplotlib,pillow 등 여러가지 설치할 라이브러리가 많습니다.</br>해당 부분은 필요한 부분만 선택하여 설치하면 됩니다.</br>
 
->>## 2-2. 본 프로젝트에서는 caffe를 사용합니다.</br>
+>## 2-2. 본 프로젝트에서는 caffe를 사용합니다.</br>
 >>1. 해당 프로젝트에서 사용되는 Model을 다운받습니다.</br>
 >> → 아래의 사이트를 참고하시면 됩니다.</br></br>
 >>    [Model 다운 받는 곳] </br>
