@@ -1,9 +1,11 @@
-# 1. Git-Hub를 시작할 때 참고하기 좋은 자료
- >>## markdown 정리 사이트 <h4> 
- >>https://gist.github.com/ihoneymon/652be052a0727ad59601
+# 1. Project
 
-</br></br>
-# 2. 환경 설정하는 순서
+>>## 1-1. Introduction
+>> 최근 카메라의 화질이 향상되면서 지문까지 고화질로 찍힐 수 있게 되었습니다.</br>
+>> 이를 통해 아무 생각없이 V자를 하고 사진을 찍거나 손바닥이 향하게 찍은 사진을 SNS에 게시하게 되면,</br> 
+>> 해당 사진을 통해 지문을 해킹할 수 있게 되었습니다.</br></br></br></br>
+
+# 00. 환경 설정하는 순서
   >>## 2-1. Anaconda3
   >>1. conda환경에서 파이썬 3.6ver으로 environment를 새로 만들어 줘야합니다.</br>
   >>//Anaconda 3를 설치하면 Python도 함께 설치되어 별도 설치할 필요가 없습니다.</br>
@@ -21,9 +23,3 @@
 >>http://posefs1.perception.cs.cmu.edu/OpenPose/models/hand/pose_iter_102000.caffemodel
 
 </br></br>
-# 3. Project
-
->>## 3-1. Introduction
->> 최근 카메라의 화질이 향상되면서 지문까지 고화질로 찍힐 수 있게 되었습니다.</br>
->> 이를 통해 아무 생각없이 V자를 하고 사진을 찍거나 손바닥이 향하게 찍은 사진을 SNS에 게시하게 되면,</br> 
->> 해당 사진을 통해 지문을 해킹할 수 있게 되었습니다.
