@@ -1,25 +1,26 @@
-# 시작해보자
-markdown 작성팁
-https://gist.github.com/ihoneymon/652be052a0727ad59601
+# 1. Git-Hub를 시작할 때 참고하기 좋은 자료
+ >>## markdown 정리 사이트 <h4> 
+ >>https://gist.github.com/ihoneymon/652be052a0727ad59601
 
 
-환경 설정하는 순서
-1. Anaconda3(콘다 깔면 파이썬 알아서 깔림)
-1. conda환경에서 파이썬 3.6ver으로 환경 새로 만들어 줘야함http://blog.naver.com/PostView.nhn?blogId=baek2sm&logNo=221378601592&categoryNo=0&parentCategoryNo=0&viewDate=&currentPage=1&postListTopCurrentPage=1&from=postView
-1. 필수 라이브러리 설치
-cv2 - https://dejavuqa.tistory.com/228
-pip install numpy,pandas,matplotlib,pillow 여러가지 있었는데 까먹.. 하다가 필요한거 부르는 것만 깔자 이거는
+# 2. 환경 설정하는 순서
+  >>## 2-1. Anaconda3(Anaconda를 설치하면 Python도 함께 설치됨)
+  >>1. conda환경에서 파이썬 3.6ver으로 environment를 새로 만들어 줘야합니다.</br>
+  >> → 아래 사이트를 참고하면 됩니다.</br>
+  >>http://blog.naver.com/PostView.nhn?blogId=baek2sm&logNo=221378601592&categoryNo=0&parentCategoryNo=0&viewDate=&currentPage=1&postListTopCurrentPage=1&from=postView
+>> 2. 필수 라이브러리를 설치해야 합니다.</br></br>
+>>    [Open CV 설치하는 법] </br>
+>>https://dejavuqa.tistory.com/228 </br></br>
+>>ps.pip install numpy,pandas,matplotlib,pillow 등 여러가지 설치할 라이브러리가 많습니다.</br>해당 부분은 필요한 부분만 선택하여 설치하면 됩니다.
 
-tensorflow는 필요할지 모르겠음, 여기선 일단 caffe 쓰니까 이것도 보류
+tensorflow는 필요할지 모르겠으나, 본 프로젝트에서는 caffe를 사용합니다.
 ----------------------
 ## Model 다운 받는 곳 http://posefs1.perception.cs.cmu.edu/OpenPose/models/hand/pose_iter_102000.caffemodel
 
 
-여기서부터 하는 걸로 할께염
+# 3. 프로젝트 필요 내용
 
-
-이미지나 동영상의 지문 지우기
-============================
+# 3-1.이미지나 동영상의 지문 지우기
 
 ## 1. 기능
  최근 카메라의 화질이 좋아지면서 지문이 해킹을 당할 수 있는 상황에 놓여져 있다.
