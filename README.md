@@ -13,7 +13,7 @@
 >>https://dejavuqa.tistory.com/228 </br></br>
 >>ps.pip install numpy,pandas,matplotlib,pillow 등 여러가지 설치할 라이브러리가 많습니다.</br>해당 부분은 필요한 부분만 선택하여 설치하면 됩니다.
 
->>## 2-2. 본 프로젝트에서는 caffe를 사용합니다.
+>>## 2-2. 본 프로젝트에서는 caffe를 사용합니다.</br></br>
 >>    [Model 다운 받는 곳] </br>
 >>http://posefs1.perception.cs.cmu.edu/OpenPose/models/hand/pose_iter_102000.caffemodel
 
