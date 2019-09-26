@@ -10,8 +10,17 @@
 ## 2. How to make this System
 ### 2-1. Hand Keypoint Detection
 > 본 기법은 손의 마디를 인식하는 Open CV 기법입니다.</br>
-### 2-2. // 타원 그린거 → 타원 부분을 blur 처리 하는 거 → noise 줄인 거
-> 본 기법은 손의 마디를 인식하는 Open CV 기법입니다.</br>
+### 2-2. Draw ellipses
+> 본 기법은 손에 타원을 그려주는 기법입니다.</br>
+### 2-3. Fill ellipses with Black
+> 그려진 타원에 검은색을 채워줍니다.</br>
+> 그 이유는 블라블라블라</br>
+### 2-4. XOR the Original image with black
+> 원본이미지와 검은색으로 채워진 이미지를 XOR해줍니다.</br>
+### 2-5. Median Blur
+> 지문만 있는 이미지에 median blur를 적용합니다.</br>
+### 2-6. Result
+> 블러처리한 이미지와 원본이미지를 합칩니다.</br>
 
 ## n. Result
 > 사진이나 동영상에 찍힌 지문을 Blur 처리하는 것을 성공하였습니다.</br>
