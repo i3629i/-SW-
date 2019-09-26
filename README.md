@@ -4,8 +4,9 @@
 
 </br></br>
 # 2. 환경 설정하는 순서
-  >>## 2-1. Anaconda3(Anaconda를 설치하면 Python도 함께 설치됨)
+  >>## 2-1. Anaconda3
   >>1. conda환경에서 파이썬 3.6ver으로 environment를 새로 만들어 줘야합니다.</br>
+  >>//Anaconda 3를 설치하면 Python도 함께 설치되어 별도 설치할 필요가 없습니다.</br>
   >> → 아래 사이트를 참고하시면 됩니다.</br></br>
   >>http://blog.naver.com/PostView.nhn?blogId=baek2sm&logNo=221378601592&categoryNo=0&parentCategoryNo=0&viewDate=&currentPage=1&postListTopCurrentPage=1&from=postView</br></br>
 >> 2. 필수 라이브러리를 설치해야 합니다.</br></br>
