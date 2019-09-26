@@ -9,9 +9,12 @@
 
 ## 2. How to make this System
 ### 2-1. Hand Keypoint Detection
-> 본 기법은 손의 마디를 인식하는 Open CV 기법입니다.
+> 본 기법은 손의 마디를 인식하는 Open CV 기법입니다.</br>
+### 2-2. // 타원 그린거 → 타원 부분을 blur 처리 하는 거 → noise 줄인 거
+> 본 기법은 손의 마디를 인식하는 Open CV 기법입니다.</br>
 
-
+## n. Result
+> 사진이나 동영상에 찍힌 지문을 Blur 처리하는 것을 성공하였습니다.</br>
 </br>
 <hr/>
 </br>
