@@ -3,30 +3,36 @@ import cv2
 import numpy as np
 import time
 import math
-from PIL import Image
 
+
+# caffe 모델과 가중치값 저장
 protoFile = "Model/pose_deploy.prototxt"
 weightsFile = "Model/pose_iter_102000.caffemodel"
+
+# 22개의 손가락 마디 포인트를 지정해줌
 nPoints = 22
-#https://www.learnopencv.com/hand-keypoint-detection-using-deep-learning-and-opencv/
-#저 사이트에 나온 손 사진 번호를 리스트에 담음
+
 POSE_PAIRS = [ [0,1],[1,2],[2,3],[3,4],[0,5],[5,6],[6,7],[7,8],[0,9],[9,10],[10,11],[11,12],[0,13],[13,14],[14,15],[15,16],[0,17],[17,18],[18,19],[19,20] ]
 net = cv2.dnn.readNetFromCaffe(protoFile, weightsFile)
+#이미지 가져오는 부분
 
-#원하는 이미지를 로드한다
-frame = cv2.imread("Image/00.jpg")
-frame_handlandmark = np.copy(frame)
-color_frame = np.copy(frame)
+path = "Image/4.jpg" #이미지 경로 지정
+frame = cv2.imread(path)
+
+line_frame = np.copy(frame)
+fingerprint_circle_frame = np.copy(frame)
+dark_frame = np.copy(frame)
 frameCopy = np.copy(frame)
+
 frameWidth = frame.shape[1]
 frameHeight = frame.shape[0]
 aspect_ratio = frameWidth/frameHeight
 
-#임계값 설정. 작을 수록 좋게 나옴. 하지만 너무 작을 시에는 이상한 것을 감지함
-threshold = 0.1
+#임계값 설정
+threshold = 0.01
 
 t = time.time()
-# input image dimensions for the network
+
 inHeight = 368
 inWidth = int(((aspect_ratio*inHeight)*8)//8)
 inpBlob = cv2.dnn.blobFromImage(frame, 1.0 / 255, (inWidth, inHeight), (0, 0, 0), swapRB=False, crop=False)
@@ -39,7 +45,6 @@ print("time taken by network : {:.3f}".format(time.time() - t))
 
 points = []
 
-#아마 이부분이 이미지에서 손을 추출하는 부분인듯해용
 for i in range(nPoints):
     # confidence map of corresponding body's part.
     probMap = output[0, i, :, :]
@@ -47,113 +52,107 @@ for i in range(nPoints):
     # Find global maxima of the probMap.
     minVal, prob, minLoc, point = cv2.minMaxLoc(probMap)
 
+#적용된 모델을 이미지의 포인트 숫자와 원으로 표현
     if prob > threshold :
         cv2.circle(frameCopy, (int(point[0]), int(point[1])), 2, (0, 255, 255), thickness=-1, lineType=cv2.FILLED)
         cv2.putText(frameCopy, "{}".format(i), (int(point[0]), int(point[1])), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2, lineType=cv2.LINE_AA)
-
         points.append((int(point[0]), int(point[1])))
     else :
+        # 포인트에 값이 없을시 None대입
         points.append(None)
 
-#원하는 이미지에서 손 부분에 리스트 값을 매칭시키는 부분
-for pair in POSE_PAIRS:
-    partA = pair[0]
-    partB = pair[1]
-    # print(partA,partB)
-    # print(points[partA], points[partB])
 
-    if points[partA] and points[partB]:
-        cv2.line(frame_handlandmark, points[partA], points[partB], (0, 255, 255), 2)
-        cv2.circle(frame_handlandmark, points[partA], 2, (0, 0, 255), thickness=-1, lineType=cv2.FILLED)
-        cv2.circle(frame_handlandmark, points[partB], 2, (0, 0, 255), thickness=-1, lineType=cv2.FILLED)
-
-#매칭시킨 이미지에서 손 끝과 두번째 마디를 리스트에 담음
-finger = [points[20],points[16],points[12],points[8],points[4]]
-finger_second = [points[19],points[15],points[11],points[7],points[3]]
-
-#리스트에 None값이 담길수 있어서 제거
-#why?브이모양을 한 경우 모든 손가락을 감지해주지 못함
-if None in finger:
-    finger.remove(None)
-
-if None in finger_second:
-    finger_second.remove(None)
+f1 = [points[20],points[16],points[12],points[8],points[4]]
+f2 = [points[19],points[15],points[11],points[7],points[3]]
 
 
-print(finger)
-print(finger_second)
+print(f1)
+print(f2)
+
+finger= []
+finger_second = []
 
 
+#점찍고 라인그려주는 부분
+def draw_line():
+    for pair in POSE_PAIRS:
+        partA = pair[0]
+        partB = pair[1]
 
-for i in range(len(finger)):
-    #원을 그리기 위해서 중간값을 찾는 과정
-    fingerprint_X = int((finger[i][0] + finger_second[i][0]) / 2)
-    fingerprint_Y = int((finger[i][1] + finger_second[i][1]) / 2)
-    print(fingerprint_X,fingerprint_Y)
-    
-    #원의 크기를 정하기 위해서 값을 구하는 과정
-    circle_size = finger[i][0] - fingerprint_X +  fingerprint_Y - finger[i][1]
-    print(circle_size)
-    # cv2.circle(frame_handlandmark, (fingerprint_X, fingerprint_Y), circle_size, (255, 255, 0), thickness=1)
-    first_X =finger[i][0]
-    first_Y = finger[i][1]
-    second_X = finger_second[i][0]
-    second_Y = finger_second[i][1]
-    
-    #원을 기울여주기 위해서 각도를 찾는 과정
-    X = first_X - second_X
-    Y = first_Y - second_Y
-    
-    B = math.sqrt(math.pow(X,2) + math.pow(Y,2))
-    print(B)
-    radius = int(B / 2)
-    half_radius = int(radius / 2)
-    acos = math.acos( X/B ) * 57.3 # 1 radian 곱
-    print('acos : ',acos)
-    # cos = math.acos()
-    #원을 그려줌
-    cv2.ellipse(frame_handlandmark,(fingerprint_X, fingerprint_Y),(radius,half_radius),-acos,0,360,(255,255,125),1)
-    #원을 검은색으로 채워줌
-    cv2.ellipse(color_frame,(fingerprint_X, fingerprint_Y),(radius,half_radius),-acos,0,360,(0,0,0),-1)
+    #손가락의 라인을 그려주고 점을 찍어줌
+        if points[partA] and points[partB]:
+            cv2.line(line_frame, points[partA], points[partB], (0, 255, 255), 2)
+            cv2.circle(line_frame, points[partA], 2, (0, 0, 255), thickness=-1, lineType=cv2.FILLED)
+            cv2.circle(line_frame, points[partB], 2, (0, 0, 255), thickness=-1, lineType=cv2.FILLED)
+    return cv2.imshow('line_frame',line_frame)
 
-#원을 검은색으로 채운 그림과 원본 사진을 XOR함
-img = cv2.bitwise_xor(color_frame,frame)
 
-# blue_threshold = 0
-# green_threshold = 0
-# red_threshold = 0
-# bgr_threshold = [blue_threshold, green_threshold, red_threshold]
+def draw_circle():
+    for i,v in enumerate(f1):
+        if f1[i] != None and f2[i] != None :
+            finger.append(f1[i])
+            finger_second.append(f2[i])
+
+    for i in range(len(finger)):
+    #손가락 마디의 중심좌표 X,Y
+        fingerprint_X = int((finger[i][0] + finger_second[i][0]) / 2)
+        fingerprint_Y = int((finger[i][1] + finger_second[i][1]) / 2)
+        first_X = finger[i][0]
+        first_Y = finger[i][1]
+        second_X = finger_second[i][0]
+        second_Y = finger_second[i][1]
+        X = first_X - second_X
+        Y = first_Y - second_Y
+    # circle_size = finger[i][0] - fingerprint_X +  fingerprint_Y - finger[i][1]
+
+# 타원의 손 모양에 맞게 틀어줘야 함으로 각을 구해 타원을 틀어줌
+        Z = math.sqrt(math.pow(X, 2) + math.pow(Y, 2))
+        radius = int(Z/2)
+        half_radius = int(radius / 2)
+        acos =  math.acos(X/Z) * 57.3
+
+    #타원그리는 함수
+        #Y축을 기준으로 각도를 지정해줌 손가락이 위를 향할 경우 각의 마이너스, 손가락이 아래를 향할 경우 각의 플러스
+        if first_Y >= second_Y :
+            acos = acos
+        else:
+            acos = -acos
+        print(acos)
+        cv2.ellipse(fingerprint_circle_frame,(fingerprint_X, fingerprint_Y),(radius,half_radius),acos,0,360,(255,255,125),1)
+        cv2.ellipse(dark_frame,(fingerprint_X, fingerprint_Y),(radius,half_radius),acos,0,360,(0,0,0),-1)
+    cv2.imshow('fingerprint_circle_frame', fingerprint_circle_frame)
+    cv2.imshow('dark_frame',dark_frame)
+    return dark_frame
+
+def bit_xor():
+    #원본이미지와 지문부분만 검정색으로 칠한 이미지를 Xor연산(같은 색일 경우 검정색으로 다른색은 흰색)
+    go_xor = cv2.bitwise_xor(draw_circle(),frame)
+    #medianblur사용해서 지문 부위만 흐림효과 추가
+    go_xor = cv2.medianBlur(go_xor,3)
+    cv2.imshow('xor',go_xor)
+    return go_xor
+
+changed_image = cv2.bitwise_or(bit_xor(),frame)
+print(changed_image.shape)
+
+
+# half_radius = 30
 #
-# thresholds = (color_frame[:,:,0] <= bgr_threshold[0]) \
-#             | (color_frame[:,:,1] <= bgr_threshold[1]) \
-#             | (color_frame[:,:,2] <= bgr_threshold[2])
+# y1 = finger[3][1] - half_radius
+# y2 = finger_second[3][1] + half_radius
+# x1 = finger[3][0] - half_radius
+# x2 = finger_second[3][0] + half_radius
 #
-# img[thresholds] = [255,255,255]
+# frame1 = frame[y1:y2, x1:x2]
+# frame1 = cv2.resize(frame1,(360,580))
+# img1 = changed_image[y1:y2, x1:x2]
+# img1 = cv2.resize(img1,(360,580))
 
-#지문있는 이미지를 블러처리
-img = cv2.medianBlur(img,3)
-cv2.imshow('test',img)
+# # 20 , 16, 12, 8,  4
 
-#블러처리한 이미지와 원본이미지를 합쳐줌
-img = cv2.bitwise_or(img,frame)
-print(img.shape)
-# img = cv2.bitwise_or(img,frame2)
-# frame = cv2.bitwise_and(frame,color_frame)
-
-
-# cv2.circle(frame,finger[1])
-
-# ycrcb = cv2.cvtColor(frame,cv2.COLOR_BGR2YCrCb)
-# mask_hand = cv2.inRange(ycrcb, np.array([0,133,77]), np.array([255,173,127]))
-
-# cv2.imshow('hands',mask_hand)
-# frame = cv2.resize(frame,(480,680))
-# cv2.imshow('Output-Keypoints', frameCopy)
-frame_handlandmark = cv2.medianBlur(frame_handlandmark,15)
-cv2.imshow('frame_handlandmark',frame_handlandmark)
-cv2.imshow('color_frame',color_frame)
-cv2.imshow('Output', img)
-# 20 , 16, 12, 8,  4
-print("Total time taken : {:.3f}".format(time.time() - t))
-
-cv2.waitKey(0)
+if __name__ == "__main__":
+    draw_circle()
+    draw_line()
+    bit_xor()
+    cv2.imshow('changed_image',changed_image)
+    cv2.waitKey(0)
