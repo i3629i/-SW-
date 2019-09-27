@@ -1,4 +1,5 @@
 # 1. Project
+![제](https://user-images.githubusercontent.com/50629716/65787953-0e6e5800-e195-11e9-9ff8-0cc6c2218648.PNG)
 
 ## 1. Introduction
 > 최근 카메라의 화질이 향상되면서 지문까지 고화질로 찍히게 되었습니다.</br>
