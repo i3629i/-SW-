@@ -8,10 +8,12 @@ from PIL import Image
 protoFile = "Model/pose_deploy.prototxt"
 weightsFile = "Model/pose_iter_102000.caffemodel"
 nPoints = 22
-
+#https://www.learnopencv.com/hand-keypoint-detection-using-deep-learning-and-opencv/
+#저 사이트에 나온 손 사진 번호를 리스트에 담음
 POSE_PAIRS = [ [0,1],[1,2],[2,3],[3,4],[0,5],[5,6],[6,7],[7,8],[0,9],[9,10],[10,11],[11,12],[0,13],[13,14],[14,15],[15,16],[0,17],[17,18],[18,19],[19,20] ]
 net = cv2.dnn.readNetFromCaffe(protoFile, weightsFile)
 
+#원하는 이미지를 로드한다
 frame = cv2.imread("Image/00.jpg")
 frame_handlandmark = np.copy(frame)
 color_frame = np.copy(frame)
@@ -20,6 +22,7 @@ frameWidth = frame.shape[1]
 frameHeight = frame.shape[0]
 aspect_ratio = frameWidth/frameHeight
 
+#임계값 설정. 작을 수록 좋게 나옴. 하지만 너무 작을 시에는 이상한 것을 감지함
 threshold = 0.1
 
 t = time.time()
@@ -36,6 +39,7 @@ print("time taken by network : {:.3f}".format(time.time() - t))
 
 points = []
 
+#아마 이부분이 이미지에서 손을 추출하는 부분인듯해용
 for i in range(nPoints):
     # confidence map of corresponding body's part.
     probMap = output[0, i, :, :]
@@ -51,6 +55,7 @@ for i in range(nPoints):
     else :
         points.append(None)
 
+#원하는 이미지에서 손 부분에 리스트 값을 매칭시키는 부분
 for pair in POSE_PAIRS:
     partA = pair[0]
     partB = pair[1]
@@ -62,9 +67,12 @@ for pair in POSE_PAIRS:
         cv2.circle(frame_handlandmark, points[partA], 2, (0, 0, 255), thickness=-1, lineType=cv2.FILLED)
         cv2.circle(frame_handlandmark, points[partB], 2, (0, 0, 255), thickness=-1, lineType=cv2.FILLED)
 
+#매칭시킨 이미지에서 손 끝과 두번째 마디를 리스트에 담음
 finger = [points[20],points[16],points[12],points[8],points[4]]
 finger_second = [points[19],points[15],points[11],points[7],points[3]]
 
+#리스트에 None값이 담길수 있어서 제거
+#why?브이모양을 한 경우 모든 손가락을 감지해주지 못함
 if None in finger:
     finger.remove(None)
 
@@ -78,10 +86,12 @@ print(finger_second)
 
 
 for i in range(len(finger)):
-
+    #원을 그리기 위해서 중간값을 찾는 과정
     fingerprint_X = int((finger[i][0] + finger_second[i][0]) / 2)
     fingerprint_Y = int((finger[i][1] + finger_second[i][1]) / 2)
     print(fingerprint_X,fingerprint_Y)
+    
+    #원의 크기를 정하기 위해서 값을 구하는 과정
     circle_size = finger[i][0] - fingerprint_X +  fingerprint_Y - finger[i][1]
     print(circle_size)
     # cv2.circle(frame_handlandmark, (fingerprint_X, fingerprint_Y), circle_size, (255, 255, 0), thickness=1)
@@ -89,11 +99,11 @@ for i in range(len(finger)):
     first_Y = finger[i][1]
     second_X = finger_second[i][0]
     second_Y = finger_second[i][1]
-
+    
+    #원을 기울여주기 위해서 각도를 찾는 과정
     X = first_X - second_X
     Y = first_Y - second_Y
-
-
+    
     B = math.sqrt(math.pow(X,2) + math.pow(Y,2))
     print(B)
     radius = int(B / 2)
@@ -101,9 +111,12 @@ for i in range(len(finger)):
     acos = math.acos( X/B ) * 57.3 # 1 radian 곱
     print('acos : ',acos)
     # cos = math.acos()
+    #원을 그려줌
     cv2.ellipse(frame_handlandmark,(fingerprint_X, fingerprint_Y),(radius,half_radius),-acos,0,360,(255,255,125),1)
+    #원을 검은색으로 채워줌
     cv2.ellipse(color_frame,(fingerprint_X, fingerprint_Y),(radius,half_radius),-acos,0,360,(0,0,0),-1)
 
+#원을 검은색으로 채운 그림과 원본 사진을 XOR함
 img = cv2.bitwise_xor(color_frame,frame)
 
 # blue_threshold = 0
@@ -116,11 +129,12 @@ img = cv2.bitwise_xor(color_frame,frame)
 #             | (color_frame[:,:,2] <= bgr_threshold[2])
 #
 # img[thresholds] = [255,255,255]
+
+#지문있는 이미지를 블러처리
 img = cv2.medianBlur(img,3)
 cv2.imshow('test',img)
 
-
-
+#블러처리한 이미지와 원본이미지를 합쳐줌
 img = cv2.bitwise_or(img,frame)
 print(img.shape)
 # img = cv2.bitwise_or(img,frame2)
