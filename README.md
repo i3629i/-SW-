@@ -2,11 +2,15 @@
 ![젭](https://user-images.githubusercontent.com/50629716/65788145-6907b400-e195-11e9-913f-74caf29c40a7.PNG)
 
 
+
+
 ## 1. Introduction
 > 최근 카메라의 화질이 향상되면서 지문까지 고화질로 찍히게 되었습니다.</br>
 > 이를 통해 사용자가 V자를 하고 사진을 찍거나 손바닥이 향하게 찍은 사진을 SNS에 게시하게 되면,</br> 
 > 사용자가 게시한 사진을 통해 지문을 해킹할 수 있게 되었습니다.</br>
 > 본 팀에서는 이를 방지하기 위한 「????」을 설계하였습니다.
+
+
 
 
 ## 2. How to make this System
@@ -51,3 +55,6 @@
 >http://posefs1.perception.cs.cmu.edu/OpenPose/models/hand/pose_iter_102000.caffemodel
 
 </br></br>
+
+
+<img src="https://user-images.githubusercontent.com/50629716/65842742-96f12200-e368-11e9-887d-983ed18566fd.PNG" width="70%"></img>
