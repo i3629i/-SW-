@@ -44,6 +44,7 @@ http://posefs1.perception.cs.cmu.edu/OpenPose/models/hand/pose_iter_102000.caffe
 ### 4.4 XOR the Original image with black
 > 원본이미지와 검은색으로 채워진 이미지를 XOR연산을 통해</br>
 > 처리하여 손가락의 지문이 있는 부분만 취합니다..</br>
+<img src="https://user-images.githubusercontent.com/50629716/65855168-7b523f80-e399-11e9-9982-1a6ecdba1fd9.PNG" width="40%"></img>
 ### 4.5 Median Blur
 > 2-4에서 처리한 이미지에 median blur를 적용합니다.</br>
 ### 4.6 Synthesis original and blur images
