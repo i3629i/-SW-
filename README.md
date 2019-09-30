@@ -10,7 +10,7 @@
 </br>
 
 
-# 3. 개발 환경 및 설치
+# 3. Environment and Installation
 ### OS
 * OS는 Windows 환경에서 개발되었습니다.
 * Server는 Ubuntu 환경을 통해 구축했습니다.
