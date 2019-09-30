@@ -63,7 +63,7 @@ http://posefs1.perception.cs.cmu.edu/OpenPose/models/hand/pose_iter_102000.caffe
 * <a href="https://webnautes.tistory.com/1255">Image Blur</a>
 </br>
 
-## 7. inquiry
+# 7. Inquiry
 Email : wonseok3629@gmail.com로 문의해 주시거나 Issue를 달아주시면 감사하겠습니다.
 </br>
 
