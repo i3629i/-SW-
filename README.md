@@ -35,8 +35,12 @@ http://posefs1.perception.cs.cmu.edu/OpenPose/models/hand/pose_iter_102000.caffe
 > 구축시 문제가 생기면 언제든 메일 주세요(wonseok3629@gmail.com)
 
 # 4. Manual
-1. 환경을 구축한후 다운받은 모델을 프로젝트의 Model폴더에 넣습니다.
-2. 
+1. 환경을 구축한후 다운받은 모델을 프로젝트의 Model폴더에 넣습니다.<br>
+<img src="https://user-images.githubusercontent.com/50629716/65876724-e2391e00-e3c4-11e9-8e89-1c75c537fdd3.PNG" width="40%"></img>
+</br>
+2. 원하는 이미지를 Image폴더에 넣습니다.<br>
+3. fingerprint_Image.py에 path변수를 자신이 넣은 이미지의 이름으로 변경해 줍니다.
+
 
 # 5. How to make this System
 ## 5.1 Download Model and weights
