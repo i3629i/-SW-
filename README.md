@@ -54,7 +54,7 @@ http://posefs1.perception.cs.cmu.edu/OpenPose/models/hand/pose_iter_102000.caffe
 
 # 5. Result
 > 사진이나 동영상에 찍힌 손가락의 지문 부분만 Blur 처리하는 데 성공하였습니다.</br>
-<img src="https://user-images.githubusercontent.com/50629716/65842742-96f12200-e368-11e9-887d-983ed18566fd.PNG" width="70%"></img>
+<img src="https://user-images.githubusercontent.com/50629716/65875074-abadd400-e3c1-11e9-844f-a7508da791d4.PNG" width="70%"></img>
 </br>
 
 # 6. References
