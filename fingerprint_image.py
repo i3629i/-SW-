@@ -16,7 +16,7 @@ POSE_PAIRS = [ [0,1],[1,2],[2,3],[3,4],[0,5],[5,6],[6,7],[7,8],[0,9],[9,10],[10,
 net = cv2.dnn.readNetFromCaffe(protoFile, weightsFile)
 #이미지 가져오는 부분
 
-path = "Image/4.jpg" #이미지 경로 지정
+path = "Image/00.jpg" #이미지 경로 지정
 frame = cv2.imread(path)
 
 line_frame = np.copy(frame)
@@ -29,7 +29,7 @@ frameHeight = frame.shape[0]
 aspect_ratio = frameWidth/frameHeight
 
 #임계값 설정
-threshold = 0.01
+threshold = 0.1
 
 t = time.time()
 
@@ -118,22 +118,23 @@ def draw_circle():
         else:
             acos = -acos
         print(acos)
-        cv2.ellipse(fingerprint_circle_frame,(fingerprint_X, fingerprint_Y),(radius,half_radius),acos,0,360,(255,255,125),1)
+        cv2.ellipse(fingerprint_circle_frame,(fingerprint_X, fingerprint_Y),(radius,half_radius),acos,0,360,(255,255,125),2)
         cv2.ellipse(dark_frame,(fingerprint_X, fingerprint_Y),(radius,half_radius),acos,0,360,(0,0,0),-1)
-    cv2.imshow('fingerprint_circle_frame', fingerprint_circle_frame)
-    cv2.imshow('dark_frame',dark_frame)
-    return dark_frame
+    return fingerprint_circle_frame,dark_frame
 
 def bit_xor():
     #원본이미지와 지문부분만 검정색으로 칠한 이미지를 Xor연산(같은 색일 경우 검정색으로 다른색은 흰색)
-    go_xor = cv2.bitwise_xor(draw_circle(),frame)
+    go_xor = cv2.bitwise_xor(draw_circle()[1],frame)
     #medianblur사용해서 지문 부위만 흐림효과 추가
     go_xor = cv2.medianBlur(go_xor,3)
-    cv2.imshow('xor',go_xor)
     return go_xor
 
-changed_image = cv2.bitwise_or(bit_xor(),frame)
-print(changed_image.shape)
+
+
+    #원본 이미지와 xor이미지를 합성함
+def bit_or():
+    changed_image = cv2.bitwise_or(bit_xor(),frame)
+    return changed_image
 
 
 # half_radius = 30
@@ -148,11 +149,7 @@ print(changed_image.shape)
 # img1 = changed_image[y1:y2, x1:x2]
 # img1 = cv2.resize(img1,(360,580))
 
-# # 20 , 16, 12, 8,  4
+# 20 , 16, 12, 8,  4
 
 if __name__ == "__main__":
-    draw_circle()
-    draw_line()
-    bit_xor()
-    cv2.imshow('changed_image',changed_image)
-    cv2.waitKey(0)
+    cv2.imwrite('Image/changed_image.jpg',bit_or())
