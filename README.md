@@ -14,16 +14,16 @@
 
 
 ## 2. How to make this System
-### 2-1. Hand Keypoint Detection
+### 2-1. Download Model and weights
 > 본 기법은 손의 마디를 인식하는 Open CV 기법입니다.</br>
 > 손가락의 마디를 인식하여 사용자의 손가락 구부림 정도, 취하고 있는 자세 등을 list에 담습니다.</br>
 > list에 담긴 번호와 이미지를 매칭합니다.</br>
-### 2-2. Draw ellipses
+### 2-2. apply the model
 > 본 기법은 손에 타원을 그려주는 기법입니다.</br>
 > 먼저, 손 끝마디와 두번째 마디의 중심점을 잡습니다.</br>
 > 손 끝마디와 두번째 마디 간격에 맞게 원의 크기를 정해줍니다.</br>
 > 타원을 손에 맞춰서 기울여주기 위해서 적정 각도를 찾습니다.</br>
-### 2-3. Fill ellipses with Black
+### 2-3. Draw ellipses in fingers
 > Draw ellipses를 통해 그려진 타원에 검은색을 채워줍니다.</br>
 > 그 이유는 블라블라블라</br>
 ### 2-4. XOR the Original image with black
@@ -31,8 +31,10 @@
 > 처리하여 손가락의 지문이 있는 부분만 취합니다..</br>
 ### 2-5. Median Blur
 > 2-4에서 처리한 이미지에 median blur를 적용합니다.</br>
-### 2-6. Result
+### 2-6. Synthesis original and blur images
 > 블러처리한 이미지와 원본이미지를 합칩니다.</br>
+
+
 ## n. Result
 > 사진이나 동영상에 찍힌 손가락의 지문 부분만 Blur 처리하는 데 성공하였습니다.</br>
 </br>
