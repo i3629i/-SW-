@@ -19,7 +19,8 @@
 * Anaconda3 설치  
   * <a href ="http://blog.naver.com/PostView.nhn?blogId=baek2sm&logNo=221378601592&categoryNo=0&parentCategoryNo=0&viewDate=&currentPage=1&postListTopCurrentPage=1&from=postView">Python3.6x 버젼을 가상환경으로 추가.</a>
 * Pycharm 설치
-  * Pycharm에서 Settings-> Project Interpreter에서 경로를 Anaconda3의 가상환경으로 추가한 Python3을  경로를 설정
+  * Pycharm에서 <a href="https://user-images.githubusercontent.com/50629716/65853370-3bd52480-e394-11e9-9d83-050eef6cd25a.PNG">Settings-> Project Interpreter</a>에서 경로를 Anaconda3의 가상환경으로 추가한 Python3을  경로를 설정
+  
 ### 2.2 설치 프로그램
 * Python 3.6x Version(추천), ※ 3.7x같은 경우는 때에 따라 불편한 경우가 많음.
 * Opencv-conrtib 4.1.1v
