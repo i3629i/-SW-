@@ -3,18 +3,34 @@
 
 
 
-
 ## 1. Introduction
 > 최근 카메라의 화질이 향상되면서 지문까지 고화질로 찍히게 되었습니다.</br>
 > 이를 통해 사용자가 V자를 하고 사진을 찍거나 손바닥이 향하게 찍은 사진을 SNS에 게시하게 되면,</br> 
 > 사용자가 게시한 사진을 통해 지문을 해킹할 수 있게 되었습니다.</br>
-> 본 팀에서는 이를 방지하기 위한 「????」을 설계하였습니다.
+> 본 팀에서는 딥 러닝 기반 비전인식 기술을 사용해 이를 방지하기 위한 이미지 지문 보호 프로그램을 설계하였습니다.
 
 
+## 2. 개발 환경 및 설치
+### 2.1 OS
+* OS는 Windows 환경에서 개발되었습니다.
+* Server는 Ubuntu 환경을 통해 구축했습니다.
 
+### 2.2 개발 환경
+* Anaconda3 설치  
+  * <a href ="http://blog.naver.com/PostView.nhn?blogId=baek2sm&logNo=221378601592&categoryNo=0&parentCategoryNo=0&viewDate=&currentPage=1&postListTopCurrentPage=1&from=postView">Python3.6x 버젼을 가상환경으로 추가.</a>
+* Pycharm 설치
+  * Pycharm에서 Settings-> Project Interpreter에서 경로를 Anaconda3의 가상환경으로 추가한 Python3을  경로를 설정
+### 2.2 설치 프로그램
+* Python 3.6x Version(추천), ※ 3.7x같은 경우는 때에 따라 불편한 경우가 많음.
+* Opencv-conrtib 4.1.1v
+* Numpy 1.17.1v
 
-## 2. How to make this System
-### 2-1. Download Model and weights
+### 2.4 Model 설치
+Caffe로 만든 신경망 모델을 설치해 Model폴더에 추가
+http://posefs1.perception.cs.cmu.edu/OpenPose/models/hand/pose_iter_102000.caffemodel
+
+## 3. How to make this System
+### 3-1. Download Model and weights
 > 본 기법은 손의 마디를 인식하는 Open CV 기법입니다.</br>
 > 손가락의 마디를 인식하여 사용자의 손가락 구부림 정도, 취하고 있는 자세 등을 list에 담습니다.</br>
 > list에 담긴 번호와 이미지를 매칭합니다.</br>
@@ -56,7 +72,7 @@
 >1. 해당 프로젝트에서 사용되는 Model을 다운받습니다.</br>
 > → 아래의 사이트를 참고하시면 됩니다.</br></br>
 >    [Model 다운 받는 곳] </br>
->http://posefs1.perception.cs.cmu.edu/OpenPose/models/hand/pose_iter_102000.caffemodel
+
 
 </br></br>
 
