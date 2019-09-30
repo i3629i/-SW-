@@ -35,6 +35,8 @@ http://posefs1.perception.cs.cmu.edu/OpenPose/models/hand/pose_iter_102000.caffe
 > 구축시 문제가 생기면 언제든 메일 주세요(wonseok3629@gmail.com)
 
 # 4. Manual
+1. 환경을 구축한후 다운받은 모델을 프로젝트의 Model폴더에 넣습니다.
+2. 
 
 # 5. How to make this System
 ## 5.1 Download Model and weights
