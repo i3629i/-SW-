@@ -61,7 +61,9 @@ http://posefs1.perception.cs.cmu.edu/OpenPose/models/hand/pose_iter_102000.caffe
 </br>
 
 ## 6. References
-* 
+* <a href="https://answers.opencv.org/question/105994/blurred-mask-on-image/">Image bitmapping</a>
+* <a href="https://www.learnopencv.com/hand-keypoint-detection-using-deep-learning-and-opencv/">Hand Landmark</a>
+* <a href="https://webnautes.tistory.com/1255">Image Blur</a>
 
 ## 7. inquiry
 Email : wonseok3629@gmail.com로 문의해 주시거나 Issue를 달아주시면 감사하겠습니다.
