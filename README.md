@@ -36,10 +36,12 @@ http://posefs1.perception.cs.cmu.edu/OpenPose/models/hand/pose_iter_102000.caffe
 
 # 4. Manual
  ### 4.1 Server에서 실행하기.
-* 4.1.1 웹 상에서 http://cdy235.iptime.org:5000/test 사이트를 들어간다. 
+* 4.1.1 웹에서 http://cdy235.iptime.org:5000/test 사이트를 들어갑니다. 
 
-* 4.1.2 
- 
+* 4.1.2 Local환경에서 자신이 변환 하고자 하는 이미지를 올립니다.<br>
+
+* 4.1.3 쿼리전송 버튼을 눌러 서버에서 변환된 이미지를 받습는다.<br>
+
  ### 4.2 Pycharm에서 Compile하기.
 * 4.2.1 환경을 구축한후 다운받은 모델을 프로젝트의 Model폴더에 넣습니다.<br>
 <img src="https://user-images.githubusercontent.com/50629716/65876724-e2391e00-e3c4-11e9-8e89-1c75c537fdd3.PNG" width="40%"></img></br>
