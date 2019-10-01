@@ -11,7 +11,7 @@
 
 
 # 3. Environment and Installation
-### * OS
+### OS
 * OS는 Windows 환경에서 개발되었습니다.
 * Server는 Ubuntu 환경을 통해 구축했습니다.
 
@@ -24,14 +24,16 @@
 ### 2. 설치 프로그램
 * Python 3.6x Version(추천), ※ 3.7x같은 경우는 때에 따라 불편한 경우가 많음.
 * <a href="https://dejavuqa.tistory.com/228">Opencv-conrtib 4.1.1v</a>
+<pre><code>pip install opencv-contrib-python</code></pre>
 * Numpy 1.17.1v
+<pre><code>pip install numpy</code></pre>
 
 ### 3. Model 설치
 Caffe로 만든 신경망 모델을 설치해 Model폴더에 추가</br>
 http://posefs1.perception.cs.cmu.edu/OpenPose/models/hand/pose_iter_102000.caffemodel
 </br>
 
-> 3.1 ~ 3.3 순서대로 필수 환경을 구축해 주시기 바랍니다.<br>
+> 1 ~ 3 순서대로 필수 환경을 구축해 주시기 바랍니다.<br>
 > 구축시 문제가 생기면 언제든 메일 주세요(wonseok3629@gmail.com)
 
 # 4. Manual
