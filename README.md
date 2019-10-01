@@ -81,7 +81,7 @@ Draw ellipses를 통해 그려진 타원에 검은색을 채워줍니다.</br>
 
 # 6. Result
 > 사진이나 동영상에 찍힌 손가락의 지문 부분만 Blur 처리하는 데 성공하였습니다.</br>
-<img width="475" alt="result" src="https://user-images.githubusercontent.com/50629716/65969335-93ac8200-e49f-11e9-8a5a-910dd1da0fbc.png">
+<img width="605" alt="result" src="https://user-images.githubusercontent.com/50629716/65969335-93ac8200-e49f-11e9-8a5a-910dd1da0fbc.png">
 
 # 7. References
 * <a href="https://answers.opencv.org/question/105994/blurred-mask-on-image/">Image bitmapping</a>
