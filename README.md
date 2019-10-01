@@ -35,6 +35,7 @@ http://posefs1.perception.cs.cmu.edu/OpenPose/models/hand/pose_iter_102000.caffe
 
 > 1 ~ 3 순서대로 필수 환경을 구축해 주시기 바랍니다.<br>
 > 구축시 문제가 생기면 언제든 메일 주세요(wonseok3629@gmail.com)
+<br>
 
 # 4. Manual
 ### 1. Server에서 실행하기.
@@ -54,8 +55,9 @@ http://posefs1.perception.cs.cmu.edu/OpenPose/models/hand/pose_iter_102000.caffe
 <img src="https://user-images.githubusercontent.com/50629716/65876971-87ec8d00-e3c5-11e9-8309-28f59e09b637.PNG" width="40%"></img></br>
 
 4. Compile 합니다.
- 
- 
+<br>
+
+
 # 5. How to make this System
 ### 1. Download Model and weights
 본 기법은 손의 마디를 인식하는 Open CV 기법입니다.</br>
