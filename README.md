@@ -83,17 +83,18 @@ Draw ellipses를 통해 그려진 타원에 검은색을 채워줍니다.</br>
 > 사진이나 동영상에 찍힌 손가락의 지문 부분만 Blur 처리하는 데 성공하였습니다.</br>
 <img width="605" alt="result" src="https://user-images.githubusercontent.com/50629716/65969335-93ac8200-e49f-11e9-8a5a-910dd1da0fbc.png">
 
-# 7. References
+
+# 7. Testing Video
+[![Youtube가기](https://user-images.githubusercontent.com/50629716/66268115-0d17ec00-e875-11e9-83c7-9f3fef164c13.JPG)](https://www.youtube.com/watch?v=uyuQG5zebNQ&t=48s)
+
+
+# 8. References
 * <a href="https://answers.opencv.org/question/105994/blurred-mask-on-image/">Image bitmapping</a>
 * <a href="https://www.learnopencv.com/hand-keypoint-detection-using-deep-learning-and-opencv/">Hand Landmark</a>
 * <a href="https://webnautes.tistory.com/1255">Image Blur</a>
 </br>
 
-
-[![Video Label](![back](https://user-images.githubusercontent.com/50629716/66268115-0d17ec00-e875-11e9-83c7-9f3fef164c13.JPG))](https://www.youtube.com/watch?v=uyuQG5zebNQ&t=48s) Video Label
-
-
-# 8. Inquiry
+# 9. Inquiry
 Email : wonseok3629@gmail.com로 문의해 주시거나 Issue를 달아주시면 감사하겠습니다.
 </br>
 
