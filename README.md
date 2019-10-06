@@ -85,7 +85,7 @@ Draw ellipses를 통해 그려진 타원에 검은색을 채워줍니다.</br>
 
 
 # 7. Testing Video
-[![Youtube가기](https://user-images.githubusercontent.com/50629716/66268115-0d17ec00-e875-11e9-83c7-9f3fef164c13.JPG)](https://www.youtube.com/watch?v=uyuQG5zebNQ&t=48s)
+[![Youtube가기](https://user-images.githubusercontent.com/50629716/66268115-0d17ec00-e875-11e9-83c7-9f3fef164c13.JPG)](https://www.youtube.com/watch?v=uyuQG5zebNQ&t=0s)
 
 
 # 8. References
